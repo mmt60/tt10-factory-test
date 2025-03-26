@@ -3,7 +3,7 @@ module tt_um_johnson (clk, r, out);
 
 parameter size=7;
 input clk;
-input r;
+input r,ena;
 output [0:size]out;
 
 reg [0:size]out;
