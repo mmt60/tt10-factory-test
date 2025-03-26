@@ -31,17 +31,17 @@ module tb ();
   tt_um_johnson user_project (
 
       // Include power ports for the Gate Level test:
-   `ifdef GL_TEST
+`ifdef GL_TEST
       .VPWR(VPWR),
       .VGND(VGND),
-   `endif
+`endif
 
-      .ui_in  (),    // Dedicated inputs
-      .uo_out (out),   // Dedicated outputs
-      .uio_in (),   // IOs: Input path
-      .uio_out(),  // IOs: Output path
-      .uio_oe (),   // IOs: Enable path (active high: 0=input, 1=output)
-      .ena    (),      // enable - goes high when design is selected
+      .ui_in  (ui_in),    // Dedicated inputs
+      .uo_out (uo_out),   // Dedicated outputs
+      .uio_in (uio_in),   // IOs: Input path
+      .uio_out(uio_out),  // IOs: Output path
+      .uio_oe (uio_oe),   // IOs: Enable path (active high: 0=input, 1=output)
+      .ena    (ena),      // enable - goes high when design is selected
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
