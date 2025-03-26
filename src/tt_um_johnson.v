@@ -1,5 +1,5 @@
 
-module tt_um_johnson (clk, r, out);
+module tt_um_johnson (clk, r, ena, out);
 
 parameter size=7;
 input clk;
