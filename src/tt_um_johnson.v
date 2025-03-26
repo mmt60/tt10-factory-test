@@ -4,13 +4,13 @@ module tt_um_johnson (clk, rst_n, ena, out);
 
 input clk;
 input rst_n,ena;
-	output [7:0]out;
+output [7:0]out;
 
-reg [0:size]out;
+reg [7:0]out;
 
-always @ (posedge clk or posedge r)
+	always @ (posedge clk or posedge rst_n)
 	begin
-		if (r) 
+		if (rst_n) 
 			out= 8'b0000_0000;
 		else
 			out={~out[7],out[0:6]};   
