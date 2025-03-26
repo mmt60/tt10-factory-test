@@ -16,7 +16,7 @@ module tb ();
   // Wire up the inputs and outputs:
   reg clk;
   reg rst_n;
-  reg out;
+   reg [7:0] out;
 `ifdef GL_TEST
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
