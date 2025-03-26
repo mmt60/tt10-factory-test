@@ -1,9 +1,9 @@
 
-module tt_um_johnson (clk, r, ena, out);
+module tt_um_johnson (clk, rst_n, ena, out);
 
 parameter size=7;
 input clk;
-input r,ena;
+input rst_n,ena;
 output [0:size]out;
 
 reg [0:size]out;
