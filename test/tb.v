@@ -16,7 +16,12 @@ module tb ();
   // Wire up the inputs and outputs:
   reg clk;
   reg rst_n;
-   reg [7:0] out;
+  reg ena;
+  reg [7:0] ui_in;
+  reg [7:0] uio_in;
+  wire [7:0] uo_out;
+  wire [7:0] uio_out;
+  wire [7:0] uio_oe;
 `ifdef GL_TEST
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
@@ -26,12 +31,17 @@ module tb ();
   tt_um_johnson user_project (
 
       // Include power ports for the Gate Level test:
-`ifdef GL_TEST
+   `ifdef GL_TEST
       .VPWR(VPWR),
       .VGND(VGND),
-`endif
+   `endif
 
-      .out (uo_out),   // Dedicated outputs
+      .ui_in  (),    // Dedicated inputs
+      .uo_out (out),   // Dedicated outputs
+      .uio_in (),   // IOs: Input path
+      .uio_out(),  // IOs: Output path
+      .uio_oe (),   // IOs: Enable path (active high: 0=input, 1=output)
+      .ena    (),      // enable - goes high when design is selected
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
