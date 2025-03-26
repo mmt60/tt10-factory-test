@@ -31,7 +31,7 @@ module tb ();
       .VGND(VGND),
 `endif
 
-     .uo_out (out),   // Dedicated outputs
+      .out (uo_out),   // Dedicated outputs
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
   );
